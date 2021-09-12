@@ -1,45 +1,15 @@
 package com.cse682.nursingresourceledgerprototype.entity;
 
-import javax.persistence.*;
-import javax.persistence.Table;
-import java.util.HashSet;
-import java.util.Set;
-
-@Entity
-@Table(name = "users")
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
-    @Column(name = "username")
+/**
+ * This class captures the data for the SignUp request which is sent when a new user registers.
+ */
+public class SignupRequest {
     private String userName;
-
-    @Column(name="email")
     private String email;
-
-    @Column(name="password")
     private String password;
-
-    @Column(name = "firstname")
     private String firstName;
-
-    @Column(name = "lastname")
     private String lastName;
-
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "user_role",
-            joinColumns = @JoinColumn(name="USER_ID", referencedColumnName="ID"),
-            inverseJoinColumns = @JoinColumn(name="ROLE_ID", referencedColumnName="ID"))
-    private Set<Role> roles = new HashSet<>();
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    private String[] roles;
 
     public String getUserName() {
         return userName;
@@ -65,6 +35,10 @@ public class User {
         this.password = password;
     }
 
+    public String[] getRoles() {
+        return roles;
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -81,10 +55,7 @@ public class User {
         this.lastName = lastName;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
-    }
-    public void setRoles(Set<Role> roles) {
+    public void setRoles(String[] roles) {
         this.roles = roles;
     }
 }

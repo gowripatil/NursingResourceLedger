@@ -1,6 +1,5 @@
 package com.cse682.nursingresourceledgerprototype;
 
-import com.cse682.nursingresourceledgerprototype.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,15 +10,14 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @ComponentScan(basePackages = {
         "com.cse682.nursingresourceledgerprototype.repository",
         "com.cse682.nursingresourceledgerprototype.controller",
-        "com.cse682.nursingresourceledgerprototype.service"
+        "com.cse682.nursingresourceledgerprototype.service",
+        "com.cse682.nursingresourceledgerprototype.security",
+        "com.cse682.nursingresourceledgerprototype.entity"
 })
-@EnableJpaRepositories(basePackages = "com.cse682.nursingresourceledgerprototype.repository")
-@SpringBootApplication(exclude = {SecurityAutoConfiguration.class} )
+/*@EnableJpaRepositories(basePackages = "com.cse682.nursingresourceledgerprototype.repository")
+@SpringBootApplication(exclude = {SecurityAutoConfiguration.class} )*/
+@SpringBootApplication
 public class NursingResourceLedgerPrototypeApplication {
-
-    @Autowired
-    UserRepository userRepository;
-
     public static void main(String[] args) {
         SpringApplication.run(NursingResourceLedgerPrototypeApplication.class, args);
     }
