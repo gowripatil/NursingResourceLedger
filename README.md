@@ -4,12 +4,8 @@ Basic web application built using Spring boot for Rest APIs + Json Web Token for
  Angular for front end.
 
 Built the app using these references:
-Spring boot + JWT + Mysql: https://www.netjstech.com/2021/02/spring-boot-spring-security-jwt-authentication.html
-Angular: https://www.netjstech.com/2021/02/angular-spring-boot-jwt-authentication-login-example.html
-
-
-Currently it renders a home page and register page. Submit button does not work due to issues 
-with thymeleaf templating engine.
+Spring boot + JWT + Mysql: https://www.netjstech.com/2021/02/spring-boot-spring-security-jwt-authentication.html  
+Angular: https://www.netjstech.com/2021/02/angular-spring-boot-jwt-authentication-login-example.html  
 
 ## Prerequsites 
 
@@ -83,12 +79,12 @@ Run Server
 	
 * Go to Run -> Select `Run NursingResourceLedgerPrototypeApplication`
 
-This runs rest apis at http://localhost:8080/home. Following are the rest apis
-POST /auth/login - login a registered user. No authentication token required to access this page.
-POST /auth/signup - register a new user as Admin or Nurse. No authentication token required to access this page.
-GET /user/allusers - returns `Displays all users string`. Accessed by both nurse and admin. Dummy API
-GET /user/displayuser - returns `Display only to nurse`. Accessed by nurse only. Dummy API.
-GET /user/displayadmin - returns `Display only to admin`. Accessed by admin only.  Dummy API. 
+This runs rest apis at http://localhost:8080/home. Following are the rest apis:  
+POST /auth/login - login a registered user. No authentication token required to access this page.    
+POST /auth/signup - register a new user as Admin or Nurse. No authentication token required to access this page.    
+GET /user/allusers - returns `Displays all users string`. Accessed by both nurse and admin. Dummy API.  
+GET /user/displayuser - returns `Display only to nurse`. Accessed by nurse only. Dummy API.  
+GET /user/displayadmin - returns `Display only to admin`. Accessed by admin only.  Dummy API.   
 
 # Starting Angular
 
