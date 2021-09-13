@@ -1,0 +1,192 @@
+<form class="flex-column">
+  <div class="flex-row">
+    <mat-form-field>
+      <mat-label>Arrival Date</mat-label>
+      <input matInput [matDatepicker]="arrival">
+      <mat-datepicker-toggle matSuffix [for]="arrival"></mat-datepicker-toggle>
+      <mat-datepicker #arrival></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Arrival Time</mat-label>
+      <input matInput type="time">
+    </mat-form-field>
+    <mat-slide-toggle>Readmission</mat-slide-toggle>
+  </div>
+  <div class="flex-row">
+    <mat-form-field>
+      <mat-label>Arrival Room</mat-label>
+      <mat-select>
+        <mat-option value="CCU 1">CCU 1</mat-option>
+        <mat-option value="CCU 2">CCU 2</mat-option>
+        <mat-option value="CCU 3">CCU 3</mat-option>
+        <mat-option value="CCU 4">CCU 4</mat-option>
+        <mat-option value="CCU 5">CCU 5</mat-option>
+        <mat-option value="CCU 6">CCU 6</mat-option>
+        <mat-option value="CCU 7">CCU 7</mat-option>
+        <mat-option value="MICU 1">MICU 1</mat-option>
+        <mat-option value="MICU 2">MICU 2</mat-option>
+        <mat-option value="MICU 3">MICU 3</mat-option>
+        <mat-option value="MICU 4">MICU 4</mat-option>
+        <mat-option value="MICU 5">MICU 5</mat-option>
+        <mat-option value="MICU 6">MICU 6</mat-option>
+        <mat-option value="SICU 1">SICU 1</mat-option>
+        <mat-option value="SICU 2">SICU 2</mat-option>
+        <mat-option value="SICU 3">SICU 3</mat-option>
+        <mat-option value="SICU 4">SICU 4</mat-option>
+        <mat-option value="SICU 5">SICU 5</mat-option>
+        <mat-option value="SICU 6">SICU 6</mat-option>
+        <mat-option value="SICU 7">SICU 7</mat-option>
+        <mat-option value="SICU 8">SICU 8</mat-option>
+        <mat-option value="SICU 9">SICU 9</mat-option>
+        <mat-option value="SICU 10">SICU 10</mat-option>
+        <mat-option value="SICU 11">SICU 11</mat-option>
+        <mat-option value="SICU 12">SICU 12</mat-option>
+        <mat-option value="SICU 13">SICU 13</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Purpose of Visit</mat-label>
+      <mat-select>
+        <mat-option value="Surgical">Surgical</mat-option>
+        <mat-option value="Cardiac (Nstemi)">Cardiac (Nstemi)</mat-option>
+        <mat-option value="Medical">Medical</mat-option>
+        <mat-option value="Cardiac (Stemi)">Cardiac (Stemi)</mat-option>
+        <mat-option value="Neurological">Neurological</mat-option>
+        <mat-option value="Cardiac">Cardiac</mat-option>
+        <mat-option value="Neuro-surgery">Neuro-surgery</mat-option>
+        <mat-option value="E.N.T.">E.N.T.</mat-option>
+        <mat-option value="Vascular">Vascular</mat-option>
+        <mat-option value="Urology">Urology</mat-option>
+        <mat-option value="Orthopedics">Orthopedics</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="flex-row">
+    <mat-form-field>
+      <mat-label>First Name</mat-label>
+      <input matInput>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Last Name</mat-label>
+      <input matInput>
+    </mat-form-field>
+  </div>
+  <div class="flex-row">
+    <mat-form-field>
+      <mat-label>Medical Record Number</mat-label>
+      <input matInput>
+    </mat-form-field>
+  </div>
+  <div class="flex-row">
+    <mat-form-field>
+      <mat-label>Age</mat-label>
+      <input matInput type="number">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Sex</mat-label>
+      <mat-select>
+        <mat-option value="Male">Male</mat-option>
+        <mat-option value="Female">Female</mat-option>
+        <mat-option value="Other">Other</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="flex-row">
+    <mat-form-field>
+      <mat-label>Origin of Patient</mat-label>
+      <mat-select>
+        <mat-option value="Emergency room">Emergency room</mat-option>
+        <mat-option value="C.C.U.">C.C.U.</mat-option>
+        <mat-option value="Trauma">Trauma</mat-option>
+        <mat-option value="M.I.C.U.">M.I.C.U.</mat-option>
+        <mat-option value="S.I.C.U">S.I.C.U</mat-option>
+        <mat-option value="Operating room">Operating room</mat-option>
+        <mat-option value="Telemetry">Telemetry</mat-option>
+        <mat-option value="I.M.C.U.">I.M.C.U.</mat-option>
+        <mat-option value="Cardiac cath">Cardiac cath</mat-option>
+        <mat-option value="Inter-institutional transfer">Inter-institutional transfer</mat-option>
+        <mat-option value="Hospice">Hospice</mat-option>
+        <mat-option value="Medical surgery">Medical surgery</mat-option>
+        <mat-option value="3 North">3 North</mat-option>
+        <mat-option value="5 South">5 South</mat-option>
+        <mat-option value="5 North">5 North</mat-option>
+        <mat-option value="6 South">6 South</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Attending</mat-label>
+      <input matInput>
+    </mat-form-field>
+  </div>
+  <div class="flex-row">
+    <mat-form-field>
+      <mat-label>Patient Diagnosis</mat-label>
+      <input matInput>
+    </mat-form-field>
+  </div>
+  <div class="flex-row">
+    <mat-form-field>
+      <mat-label>Life Saving Device</mat-label>
+      <mat-select>
+        <mat-option value="Bi-Pap">Bi-Pap</mat-option>
+        <mat-option value="C-Pap">C-Pap</mat-option>
+        <mat-option value="Hi-Flow">Hi-Flow</mat-option>
+        <mat-option value="Balloon pump">Balloon pump</mat-option>
+        <mat-option value="P.C.I.">P.C.I.</mat-option>
+        <mat-option value="Impella">Impella</mat-option>
+        <mat-option value="Pacemaker">Pacemaker</mat-option>
+        <mat-option value="Artic-Sun">Artic-Sun</mat-option>
+        <mat-option value="None">None</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-slide-toggle>Ventilator</mat-slide-toggle>
+  </div>
+  <div class="flex-row">
+    <mat-form-field>
+      <mat-label>Transfer Date</mat-label>
+      <input matInput [matDatepicker]="transfer">
+      <mat-datepicker-toggle matSuffix [for]="transfer"></mat-datepicker-toggle>
+      <mat-datepicker #transfer></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Transfer Time</mat-label>
+      <input matInput type="time">
+    </mat-form-field>
+  </div>
+  <div class="flex-row">
+    <mat-form-field>
+      <mat-label>Transfer Room</mat-label>
+      <input matInput>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Transfer Location</mat-label>
+      <mat-select>
+        <mat-option value="Emergency room">Emergency room</mat-option>
+        <mat-option value="C.C.U.">C.C.U.</mat-option>
+        <mat-option value="Trauma">Trauma</mat-option>
+        <mat-option value="M.I.C.U.">M.I.C.U.</mat-option>
+        <mat-option value="S.I.C.U">S.I.C.U</mat-option>
+        <mat-option value="Operating room">Operating room</mat-option>
+        <mat-option value="Telemetry">Telemetry</mat-option>
+        <mat-option value="I.M.C.U.">I.M.C.U.</mat-option>
+        <mat-option value="Cardiac cath">Cardiac cath</mat-option>
+        <mat-option value="Inter-institutional transfer">Inter-institutional transfer</mat-option>
+        <mat-option value="Hospice">Hospice</mat-option>
+        <mat-option value="Medical surgery">Medical surgery</mat-option>
+        <mat-option value="Against medical advice">Against medical advice</mat-option>
+        <mat-option value="Discharged">Discharged</mat-option>
+        <mat-option value="Expired">Expired</mat-option>
+        <mat-option value="3 North">3 North</mat-option>
+        <mat-option value="3 South">3 South</mat-option>
+        <mat-option value="5 South">5 South</mat-option>
+        <mat-option value="5 North">5 North</mat-option>
+        <mat-option value="6 South">6 South</mat-option>
+        <mat-option value="Labor and delivery">Labor and delivery</mat-option>
+        <mat-option value="Pediatrics">Pediatrics</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="flex-right">
+    <button mat-raised-button type="submit">Submit</button>
+  </div>
+</form>
