@@ -86,6 +86,23 @@ GET /user/allusers - returns `Displays all users string`. Accessed by both nurse
 GET /user/displayuser - returns `Display only to nurse`. Accessed by nurse only. Dummy API.  
 GET /user/displayadmin - returns `Display only to admin`. Accessed by admin only.  Dummy API.   
 
+GET /auth/ledger/all -- returns all ledger info
+POST /auth/ledger/add -- Adds a ledger entry
+POST /auth/ledger/update -- Updates a ledger entry
+JSONBody for ledger add/update
+{
+"id": 1,
+"arrivalDate": "2020-10-10T07:00:00.000+00:00",
+"arrivalRoom": "gh",
+"purposeOfVisit": "asada",
+"readmission": false,
+"patientName": "testarossa",
+"sex": "m",
+"patientOrigin": "nrbas",
+"lifeSavingDevices": "asdasd",
+"transferLocation": "kilo",
+"ventilatorSupport": true
+}
 # Starting Angular
 
 * Go to `src/main/resources/nrl` folder and run `ng serve --open`
