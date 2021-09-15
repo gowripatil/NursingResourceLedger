@@ -6,8 +6,6 @@ import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import {RegisterComponent} from './auth/register/register.component';
 import {LoginComponent} from './auth/login/login.component';
-import {HomeComponent} from './home.component';
-import {AllUsersComponent} from './users/allusers.component';
 import {LedgerComponent} from "./ledger";
 import {PatientsComponent} from "./patients";
 import {AuthInterceptor} from './services/authintercptor.service';
@@ -24,14 +22,13 @@ import {MatNativeDateModule} from "@angular/material/core";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatSelectModule} from "@angular/material/select";
 import {MatOptionModule} from "@angular/material/core";
+import {MatRadioModule} from "@angular/material/radio";
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    HomeComponent,
-    AllUsersComponent,
     LedgerComponent,
     PatientsComponent
   ],
@@ -53,7 +50,8 @@ import {MatOptionModule} from "@angular/material/core";
     MatSlideToggleModule,
     MatSelectModule,
     MatOptionModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatRadioModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
