@@ -43,12 +43,12 @@
     </mat-radio-group>
   </div>
   <div class="flex-right">
-    <button mat-raised-button [disabled]="registrationForm.invalid" type="submit">Sign Up</button>
+    <button mat-raised-button [disabled]="registrationForm.invalid" type="submit">Create User</button>
     <div class="alert alert-warning" *ngIf="submitted && !isRegistered">
       Signup failed- {{ errorMessage }}
     </div>
     <div class="alert alert-success" *ngIf="isRegistered">
-      Your registration is successful!
+      User successfully added!
     </div>
   </div>
 </form>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot } from '@angular/router';
 import { AuthService } from './services/auth.service';
 
 @Component({
@@ -7,20 +8,24 @@ import { AuthService } from './services/auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+
   constructor(private authService: AuthService){}
-  //isLoggedIn = false;
-  userName: string = '';
-  ngOnInit(): void {
-    //this.isLoggedIn = this.authService.isLoggedIn();
-  }
-  getUserName(){
+
+  ngOnInit(): void { }
+
+  getUserName(): string {
      return sessionStorage.getItem("username");
   }
-  onLogOut(){
+
+  onLogOut(): void {
     this.authService.logout();
   }
 
-  loggedIn(){
-    return this.authService.isLoggedIn()
+  isAdministrator(): boolean {
+    return this.authService.isAdministrator();
+  }
+
+  loggedIn(): boolean {
+    return this.authService.isLoggedIn();
   }
 }
