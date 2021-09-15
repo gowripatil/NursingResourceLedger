@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.loginForm.value.userName, this.loginForm.value.password).subscribe(
       data => {
         this.isLoggedin = true
-        this.router.navigate(['/home']);
+        this.router.navigate(['']);
       },
       error => {
         console.log(error);

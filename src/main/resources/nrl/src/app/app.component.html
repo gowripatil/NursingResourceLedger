@@ -1,13 +1,13 @@
 <mat-toolbar color="primary">
   <span>Nursing Resource Ledger</span>
   <span class="spacer"></span>
-  <a mat-button routerLink="/ledger">Ledger</a>
-  <a mat-button routerLink="/patients">Patients</a>
+  <a mat-button routerLink="/ledger" *ngIf="loggedIn()">Ledger</a>
+  <a mat-button routerLink="/patients" *ngIf="loggedIn()">Patients</a>
+  <a mat-button routerLink="/createuser" *ngIf="loggedIn() && isAdministrator()">Create User</a>
   <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu">
     <mat-icon>menu</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
-    <a mat-menu-item href="/signup" class="nav-link" routerLink="signup" *ngIf="!loggedIn()">Sign Up</a>
     <a mat-menu-item href="/login" class="nav-link" routerLink="login" *ngIf="!loggedIn()">Login</a>
     <a mat-menu-item href class="nav-link" *ngIf="loggedIn()">{{ getUserName() }}</a>
     <a mat-menu-item href class="nav-link" (click)="onLogOut()" *ngIf="loggedIn()" routerLink="logout">LogOut</a>
