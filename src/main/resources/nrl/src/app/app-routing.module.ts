@@ -4,12 +4,14 @@ import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
 import { LedgerComponent } from './ledger';
 import { PatientsComponent } from './patients';
+import { AuthService } from './services/auth.service';
 
 const routes: Routes = [
-    {path: 'signup', component: RegisterComponent},
+    {path: '', redirectTo: 'ledger', pathMatch: 'full'},
     {path: 'login', component: LoginComponent},
-    {path: 'ledger', component: LedgerComponent},
-    {path: 'patients', component: PatientsComponent},
+    {path: 'createuser', component: RegisterComponent, canActivate: [AuthService]},
+    {path: 'ledger', component: LedgerComponent, canActivate: [AuthService]},
+    {path: 'patients', component: PatientsComponent, canActivate: [AuthService]},
 ];
 
 @NgModule({
