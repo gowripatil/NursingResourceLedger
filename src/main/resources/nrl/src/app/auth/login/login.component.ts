@@ -41,4 +41,16 @@ export class LoginComponent implements OnInit {
       }
     );
   }
+
+  userNameError(): string {
+    if (this.loginForm.get("userName").errors.required)
+      return "User name is required";
+    return "";
+  }
+
+  passwordError(): string {
+    if (this.loginForm.get("password").errors.required)
+      return "User name is required";
+    return "";
+  }
 }

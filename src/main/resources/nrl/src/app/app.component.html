@@ -1,12 +1,8 @@
 <mat-toolbar color="primary">
   <span>Nursing Resource Ledger</span>
   <span class="spacer"></span>
-  <a mat-button routerLink="/home">Home</a>
   <a mat-button routerLink="/ledger">Ledger</a>
   <a mat-button routerLink="/patients">Patients</a>
-  <a mat-button routerLink="/allusers">All Users</a>
-  <a mat-button *ngIf="loggedIn()" routerLink="/usercontent">User Content</a>
-  <a mat-button *ngIf="loggedIn()" routerLink="/admincontent">Admin Content</a>
   <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu">
     <mat-icon>menu</mat-icon>
   </button>
