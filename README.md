@@ -14,6 +14,7 @@ Angular: https://www.netjstech.com/2021/02/angular-spring-boot-jwt-authenticatio
 * Download installation package [here](https://dev.mysql.com/downloads/mysql/)
 * Install MySQL server
 * run command to for mysql prompt `sudo /usr/local/mysql/bin/mysql --password`
+	* if working on Windows, you can also simply start a mysql command line client
 * run command to create mysql user `create user 'nrlmysqladmin'@'%'
 identified by 'ThePassword';`
 * run command to create sample database **nrl** `create database nrl;`
