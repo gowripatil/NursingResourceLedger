@@ -62,13 +62,13 @@ insert into nrl.user_role (user_id, role_id) values (1, 1);
 
 # Installing Angular CLI
 
-* run command to install angular CLI on mac
+* run command to install angular CLI in mac terminal or powershell
 `npm install -g @angular/cli`
 
 
 # Setting up project
 
-* Clone NursingResource Legder repository
+* Clone NursingResource Ledger repository
 ```
 git clone https://github.com/gowripatil/NursingResourceLedger.git
 ```
