@@ -18,7 +18,7 @@ Angular: https://www.netjstech.com/2021/02/angular-spring-boot-jwt-authenticatio
 identified by 'ThePassword';`
 * run command to create sample database **nrl** `create database nrl;`
 * run command to allow new user to access **nrl** database `grant
-all on nursingresourceledger.* to 'nrlmysqladmin'@'%';`
+all on nrl.* to 'nrlmysqladmin'@'%';`
 * run command to create **users** table in **nrl** database
 ```$xslt
 CREATE TABLE `nrl`.`users` (
