@@ -23,6 +23,8 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatSelectModule} from "@angular/material/select";
 import {MatOptionModule} from "@angular/material/core";
 import {MatRadioModule} from "@angular/material/radio";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatSortModule} from "@angular/material/sort";
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import {MatRadioModule} from "@angular/material/radio";
     MatSelectModule,
     MatOptionModule,
     MatNativeDateModule,
-    MatRadioModule
+    MatRadioModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]

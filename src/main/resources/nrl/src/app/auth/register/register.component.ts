@@ -34,7 +34,6 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    debugger;
     this.submitted = true;
     this.user.userName = this.registrationForm.value.userName;
     this.user.email = this.registrationForm.value.email;
