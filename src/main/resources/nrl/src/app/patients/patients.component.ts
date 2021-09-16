@@ -1,6 +1,6 @@
 import { Ledger } from '../ledger/ledger.model';
 import { LedgerService } from '../services/ledger.service';
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
@@ -19,8 +19,10 @@ export class PatientsComponent implements OnInit{
   selectedTransferLocation: string;
   isVentilator: boolean;
   isReadmission: boolean;
+  arrivalDate: Date;
+  patientName: string;
 
-  constructor(ledgerService: LedgerService) { 
+  constructor(ledgerService: LedgerService) {
     this._ledgerService = ledgerService;
   }
 
@@ -44,20 +46,21 @@ export class PatientsComponent implements OnInit{
   onSubmit(): void {
     this.isReadmission = this.patients_form.value['readmission'] ?? false;
     this.isVentilator = this.patients_form.value['ventilator'] ?? false;
-    // need to pull data from page
-    let record = new Ledger((new Date), this.selectedArrivalRoom, this.selectedPurpose, 
-                            this.isReadmission, "John Doe", this.selectedSex, 
-                            this.selectedOrigin, this.isVentilator, this.selectedLSD, 
-                            this.selectedTransferLocation);
+    let date = this.patients_form.get("arrival_date").value;
+    let time = this.patients_form.get("arrival_time").value;
+    let  time_arr = time.split(":")
+    this.arrivalDate = new Date(Number(date.getFullYear()), Number(date.getMonth()), Number(date.getDate()), Number(time_arr[0]), Number(time_arr[1]));
+    this.patientName = this.patients_form.get("first_name").value + " " + this.patients_form.get("last_name").value;
+
+    let record = new Ledger(this.arrivalDate, this.selectedArrivalRoom, this.selectedPurpose, this.isReadmission, this.patientName, 
+                            this.selectedSex, this.selectedOrigin, this.isVentilator, this.selectedLSD, this.selectedTransferLocation);
     console.log(record);
     this._ledgerService.addRecord(record).subscribe(
       response => {
         
-        // success case - show success message
-        // console.log(response);
       },
       error => {
-        // failure case - show failure message
+        
         console.error(error);
       }
     )
