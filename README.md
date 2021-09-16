@@ -53,13 +53,6 @@ CREATE TABLE `nrl`.`user_role` (
   `role_id` INT NOT NULL);
 ```
 
-* run commands to insert first admin user into **users** table 
-```$xslt
-insert into nrl.users (username, email, password, firstname, lastname) values ("username", "email", "password", "firstname", "lastname");
-	* please be sure to put the actual data you desire for the admin user in the quotes above
-insert into nrl.user_role (user_id, role_id) values (1, 1);
-```
-
 # Installing Angular CLI
 
 * run command to install angular CLI in mac terminal or powershell
@@ -113,4 +106,19 @@ JSONBody for ledger add/update
 * Go to `src/main/resources/nrl` folder and run `ng serve --open`
 
 This starts angular application @ http://localhost:4200
+
+* If you are accessing the application for the first time then run the curl command in terminal to
+to create an admin user in database.
+```aidl
+curl --location --request POST 'localhost:8080/auth/signup' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "userName": "admin",
+    "email": "admin@syr.edu",
+    "password": "admin",
+    "roles": ["admin"],
+    "firstName": "admin",
+    "lastName": "admin"
+}'
+```
 
