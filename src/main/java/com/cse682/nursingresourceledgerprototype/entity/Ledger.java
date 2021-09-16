@@ -1,5 +1,6 @@
 package com.cse682.nursingresourceledgerprototype.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.persistence.*;
 import java.util.Date;
 
@@ -17,6 +18,7 @@ public class Ledger {
     private String patientName;
     private String sex;
     private String patientOrigin;
+    @JsonProperty
     private boolean isVentilatorSupport;
     private String lifeSavingDevices;
     private String transferLocation;

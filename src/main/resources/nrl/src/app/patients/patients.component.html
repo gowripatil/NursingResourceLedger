@@ -25,7 +25,7 @@
   <div class="flex-row">
     <mat-form-field>
       <mat-label>Arrival Room</mat-label>
-      <mat-select formControlName="arrival_room" required>
+      <mat-select [(value)]="selectedArrivalRoom" formControlName="arrival_room" required>
         <mat-option value="CCU 1">CCU 1</mat-option>
         <mat-option value="CCU 2">CCU 2</mat-option>
         <mat-option value="CCU 3">CCU 3</mat-option>
@@ -61,7 +61,7 @@
     </mat-form-field>
     <mat-form-field>
       <mat-label>Purpose of Visit</mat-label>
-      <mat-select formControlName="purpose_of_visit" required>
+      <mat-select [(value)]="selectedPurpose" formControlName="purpose_of_visit" required>
         <mat-option value="Surgical">Surgical</mat-option>
         <mat-option value="Cardiac (Nstemi)">Cardiac (Nstemi)</mat-option>
         <mat-option value="Medical">Medical</mat-option>
@@ -114,7 +114,7 @@
     </mat-form-field>
     <mat-form-field>
       <mat-label>Sex</mat-label>
-      <mat-select formControlName="sex" required>
+      <mat-select [(value)]="selectedSex" formControlName="sex" required>
         <mat-option value="Male">Male</mat-option>
         <mat-option value="Female">Female</mat-option>
         <mat-option value="Other">Other</mat-option>
@@ -129,7 +129,7 @@
   <div class="flex-row">
     <mat-form-field>
       <mat-label>Origin of Patient</mat-label>
-      <mat-select formControlName="origin_of_patient" required>
+      <mat-select [(value)]="selectedOrigin" formControlName="origin_of_patient" required>
         <mat-option value="Emergency room">Emergency room</mat-option>
         <mat-option value="C.C.U.">C.C.U.</mat-option>
         <mat-option value="Trauma">Trauma</mat-option>
@@ -167,7 +167,7 @@
   <div class="flex-row">
     <mat-form-field>
       <mat-label>Life Saving Device</mat-label>
-      <mat-select formControlName="life_saving_device" required>
+      <mat-select [(value)]="selectedLSD" formControlName="life_saving_device" required>
         <mat-option value="Bi-Pap">Bi-Pap</mat-option>
         <mat-option value="C-Pap">C-Pap</mat-option>
         <mat-option value="Hi-Flow">Hi-Flow</mat-option>
@@ -205,7 +205,7 @@
     </mat-form-field>
     <mat-form-field>
       <mat-label>Transfer Location</mat-label>
-      <mat-select formControlName="transfer_location" required>
+      <mat-select [(value)]="selectedTransferLocation" formControlName="transfer_location" required>
         <mat-option value="Emergency room">Emergency room</mat-option>
         <mat-option value="C.C.U.">C.C.U.</mat-option>
         <mat-option value="Trauma">Trauma</mat-option>
@@ -237,6 +237,6 @@
     </mat-form-field>
   </div>
   <div class="flex-right">
-    <button mat-raised-button [disabled]="patients_form.invalid" (click)="onSubmit()" type="submit">Submit</button>
+    <button mat-raised-button [disabled]="patients_form.invalid" type="submit">Submit</button>
   </div>
 </form>

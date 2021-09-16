@@ -1,6 +1,6 @@
 import { Ledger } from '../ledger/ledger.model';
 import { LedgerService } from '../services/ledger.service';
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
@@ -8,9 +8,17 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
   styleUrls:["../app.component.css"]
 })
 export class PatientsComponent implements OnInit{
-
+  
   _ledgerService;
   patients_form: FormGroup;
+  selectedArrivalRoom: string;
+  selectedPurpose: string;
+  selectedSex: string;
+  selectedOrigin: string;
+  selectedLSD: string;
+  selectedTransferLocation: string;
+  isVentilator: boolean;
+  isReadmission: boolean;
 
   constructor(ledgerService: LedgerService) { 
     this._ledgerService = ledgerService;
@@ -34,10 +42,17 @@ export class PatientsComponent implements OnInit{
   }
 
   onSubmit(): void {
+    this.isReadmission = this.patients_form.value['readmission'] ?? false;
+    this.isVentilator = this.patients_form.value['ventilator'] ?? false;
     // need to pull data from page
-    let record = new Ledger((new Date), "A3", "Chest pains", false, "John Doe", "Male", "Jamaica", false, "none", "");
+    let record = new Ledger((new Date), this.selectedArrivalRoom, this.selectedPurpose, 
+                            this.isReadmission, "John Doe", this.selectedSex, 
+                            this.selectedOrigin, this.isVentilator, this.selectedLSD, 
+                            this.selectedTransferLocation);
+    console.log(record);
     this._ledgerService.addRecord(record).subscribe(
       response => {
+        
         // success case - show success message
         // console.log(response);
       },
