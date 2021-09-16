@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins="*")
-@RequestMapping("/auth/ledger")
+@RequestMapping("/ledger")
 public class LedgerController {
     private final LedgerServiceImpl ledgerService;
 

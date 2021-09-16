@@ -1,20 +1,20 @@
 <div class="table-div">
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <!-- Arrival Date Time Column -->
-    <ng-container matColumnDef="arrival_date_time">
+    <ng-container matColumnDef="arrivalDate">
       <th mat-header-cell *matHeaderCellDef> Arrival Date Time</th>
       <td mat-cell
-          *matCellDef="let patient"> {{formatDate(patient.arrival_date_time, "dd-MM-yyyy hh:mm:ss a", "en-US")}} </td>
+          *matCellDef="let patient"> {{formatDate(patient.arrivalDate, "dd-MM-yyyy hh:mm:ss a", "en-US")}} </td>
     </ng-container>
     <!-- Arrival Room Column -->
-    <ng-container matColumnDef="arrival_room">
+    <ng-container matColumnDef="arrivalRoom">
       <th mat-header-cell *matHeaderCellDef> Arrival Room</th>
-      <td mat-cell *matCellDef="let patient"> {{patient.arrival_room}} </td>
+      <td mat-cell *matCellDef="let patient"> {{patient.arrivalRoom}} </td>
     </ng-container>
     <!-- Purpose of Visit Column -->
-    <ng-container matColumnDef="purpose_of_visit">
+    <ng-container matColumnDef="purposeOfVisit">
       <th mat-header-cell *matHeaderCellDef> Purpose of Visit</th>
-      <td mat-cell *matCellDef="let patient"> {{patient.purpose_of_visit}} </td>
+      <td mat-cell *matCellDef="let patient"> {{patient.purposeOfVisit}} </td>
     </ng-container>
     <!-- Readmission Column -->
     <ng-container matColumnDef="readmission">
@@ -22,9 +22,9 @@
       <td mat-cell *matCellDef="let patient"> {{(patient.readmission) ? "Yes" : "No"}} </td>
     </ng-container>
     <!-- Patient Name Column -->
-    <ng-container matColumnDef="patient_name">
+    <ng-container matColumnDef="patientName">
       <th mat-header-cell *matHeaderCellDef> Patient Name</th>
-      <td mat-cell *matCellDef="let patient"> {{patient.patient_name}} </td>
+      <td mat-cell *matCellDef="let patient"> {{patient.patientName}} </td>
     </ng-container>
     <!-- Sex Column -->
     <ng-container matColumnDef="sex">
@@ -32,24 +32,24 @@
       <td mat-cell *matCellDef="let patient"> {{patient.sex}} </td>
     </ng-container>
     <!-- Origin of Patient Column -->
-    <ng-container matColumnDef="origin_of_patient">
+    <ng-container matColumnDef="patientOrigin">
       <th mat-header-cell *matHeaderCellDef> Origin of Patient</th>
-      <td mat-cell *matCellDef="let patient"> {{patient.origin_of_patient}} </td>
+      <td mat-cell *matCellDef="let patient"> {{patient.patientOrigin}} </td>
     </ng-container>
     <!-- Ventilator Column -->
-    <ng-container matColumnDef="ventilator">
+    <ng-container matColumnDef="isVentilatorSupport">
       <th mat-header-cell *matHeaderCellDef> Ventilator</th>
-      <td mat-cell *matCellDef="let patient"> {{(patient.ventilator) ? "Yes" : "No"}} </td>
+      <td mat-cell *matCellDef="let patient"> {{(patient.isVentilatorSupport) ? "Yes" : "No"}} </td>
     </ng-container>
     <!-- Life Saving Device Column -->
-    <ng-container matColumnDef="life_saving_device">
+    <ng-container matColumnDef="lifeSavingDevices">
       <th mat-header-cell *matHeaderCellDef> Life Saving Device</th>
-      <td mat-cell *matCellDef="let patient"> {{patient.life_saving_device}} </td>
+      <td mat-cell *matCellDef="let patient"> {{patient.lifeSavingDevices}} </td>
     </ng-container>
     <!-- Transfer Location Column -->
-    <ng-container matColumnDef="transfer_location">
+    <ng-container matColumnDef="transferLocation">
       <th mat-header-cell *matHeaderCellDef> Transfer Location</th>
-      <td mat-cell *matCellDef="let patient"> {{patient.transfer_location}} </td>
+      <td mat-cell *matCellDef="let patient"> {{patient.transferLocation}} </td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

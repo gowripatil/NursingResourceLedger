@@ -16,7 +16,7 @@ export class AuthService implements CanActivate {
 
     signup(user: User): Observable<any> {
         return this.http.post(this.baseUrl + 'signup', user, { headers, responseType: 'text' })
-            .pipe(catchError(this.handleError));;
+            .pipe(catchError(this.handleError));
     }
 
     login(user: string, password: string) {

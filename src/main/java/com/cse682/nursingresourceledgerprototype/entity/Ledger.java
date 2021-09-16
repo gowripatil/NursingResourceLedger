@@ -6,20 +6,18 @@ import java.util.Date;
 @Entity
 @Table(name = "ledger")
 public class Ledger {
-
-
-
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Date arrivalDate;
     private String arrivalRoom;
     private String purposeOfVisit;
-    private Boolean readmission;
+    private boolean readmission;
     private String patientName;
     private String sex;
     private String patientOrigin;
-    private Boolean isVentilatorSupport;
+    private boolean isVentilatorSupport;
     private String lifeSavingDevices;
     private String transferLocation;
 
@@ -55,11 +53,11 @@ public class Ledger {
         this.purposeOfVisit = purposeOfVisit;
     }
 
-    public Boolean getReadmission() {
+    public boolean getReadmission() {
         return readmission;
     }
 
-    public void setReadmission(Boolean readmission) {
+    public void setReadmission(boolean readmission) {
         this.readmission = readmission;
     }
 
@@ -87,11 +85,11 @@ public class Ledger {
         this.patientOrigin = patientOrigin;
     }
 
-    public Boolean getVentilatorSupport() {
+    public boolean getVentilatorSupport() {
         return isVentilatorSupport;
     }
 
-    public void setVentilatorSupport(Boolean ventilatorSupport) {
+    public void setVentilatorSupport(boolean ventilatorSupport) {
         isVentilatorSupport = ventilatorSupport;
     }
 
@@ -110,7 +108,5 @@ public class Ledger {
     public void setTransferLocation(String transferLocation) {
         this.transferLocation = transferLocation;
     }
-
-
     
 }
