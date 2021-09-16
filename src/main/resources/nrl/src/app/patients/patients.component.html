@@ -237,6 +237,12 @@
     </mat-form-field>
   </div>
   <div class="flex-right">
-    <button mat-raised-button [disabled]="patients_form.invalid" type="submit">Submit</button>
+    <button mat-raised-button [disabled]="patients_form.invalid" type="submit">Submit</button><br/>
+    <mat-error *ngIf="submitFailure">
+      Error: patient record not added
+    </mat-error>
+    <div class="alert alert-success" *ngIf="submitSuccess">
+      Patient record successfully added!
+    </div>
   </div>
 </form>

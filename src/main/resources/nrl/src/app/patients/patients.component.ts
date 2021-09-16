@@ -1,7 +1,7 @@
 import { Ledger } from '../ledger/ledger.model';
 import { LedgerService } from '../services/ledger.service';
-import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {FormControl, FormGroup, FormGroupDirective, Validators} from "@angular/forms";
 
 @Component({
   templateUrl: 'patients.component.html',
@@ -9,6 +9,8 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class PatientsComponent implements OnInit{
   
+  @ViewChild(FormGroupDirective) formDirective: FormGroupDirective;
+
   _ledgerService;
   patients_form: FormGroup;
   selectedArrivalRoom: string;
@@ -21,6 +23,8 @@ export class PatientsComponent implements OnInit{
   isReadmission: boolean;
   arrivalDate: Date;
   patientName: string;
+  submitFailure: boolean = false;
+  submitSuccess: boolean = false;
 
   constructor(ledgerService: LedgerService) {
     this._ledgerService = ledgerService;
@@ -44,6 +48,8 @@ export class PatientsComponent implements OnInit{
   }
 
   onSubmit(): void {
+    this.submitSuccess = false;
+    this.submitFailure = false;
     this.isReadmission = this.patients_form.value['readmission'] ?? false;
     this.isVentilator = this.patients_form.value['ventilator'] ?? false;
     let date = this.patients_form.get("arrival_date").value;
@@ -54,13 +60,15 @@ export class PatientsComponent implements OnInit{
 
     let record = new Ledger(this.arrivalDate, this.selectedArrivalRoom, this.selectedPurpose, this.isReadmission, this.patientName, 
                             this.selectedSex, this.selectedOrigin, this.isVentilator, this.selectedLSD, this.selectedTransferLocation);
-    console.log(record);
+
     this._ledgerService.addRecord(record).subscribe(
       response => {
-        
+        this.formDirective.resetForm();
+        this.submitSuccess = true;
       },
+
       error => {
-        
+        this.submitFailure = true;
         console.error(error);
       }
     )
