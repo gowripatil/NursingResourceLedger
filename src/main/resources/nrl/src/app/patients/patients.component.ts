@@ -2,6 +2,7 @@ import { Ledger } from '../ledger/ledger.model';
 import { LedgerService } from '../services/ledger.service';
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {formatDate} from "@angular/common";
 
 @Component({
   templateUrl: 'patients.component.html',
@@ -12,7 +13,7 @@ export class PatientsComponent implements OnInit{
   _ledgerService;
   patients_form: FormGroup;
 
-  constructor(ledgerService: LedgerService) { 
+  constructor(ledgerService: LedgerService) {
     this._ledgerService = ledgerService;
   }
 
@@ -34,6 +35,12 @@ export class PatientsComponent implements OnInit{
   }
 
   onSubmit(): void {
+    debugger;
+    const date = this.patients_form.get("arrival_date").value;
+    const time = this.patients_form.get("arrival_time").value;
+    const time_arr = time.split(":")
+    const arrivalDate = new Date(Number(date.getFullYear()), Number(date.getMonth()), Number(date.getDate()), Number(time_arr[0]), Number(time_arr[1]));
+    const patientName = this.patients_form.get("first_name").value + " " + this.patients_form.get("last_name").value;
     // need to pull data from page
     let record = new Ledger((new Date), "A3", "Chest pains", false, "John Doe", "Male", "Jamaica", false, "none", "");
     this._ledgerService.addRecord(record).subscribe(
