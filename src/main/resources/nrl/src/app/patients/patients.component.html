@@ -1,21 +1,31 @@
-<form class="flex-column">
+<form class="flex-column" [formGroup]="patients_form" (ngSubmit)="onSubmit()">
   <div class="flex-row">
     <mat-form-field>
       <mat-label>Arrival Date</mat-label>
-      <input matInput [matDatepicker]="arrival">
+      <input matInput [matDatepicker]="arrival" formControlName="arrival_date" required>
       <mat-datepicker-toggle matSuffix [for]="arrival"></mat-datepicker-toggle>
       <mat-datepicker #arrival></mat-datepicker>
+      <mat-error *ngIf="patients_form.get('arrival_date').invalid &&
+      patients_form.get('arrival_date').touched &&
+      patients_form.get('arrival_date').errors.required">
+        Arrival Date is required
+      </mat-error>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Arrival Time</mat-label>
-      <input matInput type="time">
+      <input matInput type="time" formControlName="arrival_time" required>
+      <mat-error *ngIf="patients_form.get('arrival_time').invalid &&
+      patients_form.get('arrival_time').touched &&
+      patients_form.get('arrival_time').errors.required">
+        Arrival Time is required
+      </mat-error>
     </mat-form-field>
-    <mat-slide-toggle>Readmission</mat-slide-toggle>
+    <mat-slide-toggle formControlName="readmission">Readmission</mat-slide-toggle>
   </div>
   <div class="flex-row">
     <mat-form-field>
       <mat-label>Arrival Room</mat-label>
-      <mat-select>
+      <mat-select formControlName="arrival_room" required>
         <mat-option value="CCU 1">CCU 1</mat-option>
         <mat-option value="CCU 2">CCU 2</mat-option>
         <mat-option value="CCU 3">CCU 3</mat-option>
@@ -43,10 +53,15 @@
         <mat-option value="SICU 12">SICU 12</mat-option>
         <mat-option value="SICU 13">SICU 13</mat-option>
       </mat-select>
+      <mat-error *ngIf="patients_form.get('arrival_room').invalid &&
+      patients_form.get('arrival_room').touched &&
+      patients_form.get('arrival_room').errors.required">
+        Arrival Room is required
+      </mat-error>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Purpose of Visit</mat-label>
-      <mat-select>
+      <mat-select formControlName="purpose_of_visit" required>
         <mat-option value="Surgical">Surgical</mat-option>
         <mat-option value="Cardiac (Nstemi)">Cardiac (Nstemi)</mat-option>
         <mat-option value="Medical">Medical</mat-option>
@@ -59,16 +74,31 @@
         <mat-option value="Urology">Urology</mat-option>
         <mat-option value="Orthopedics">Orthopedics</mat-option>
       </mat-select>
+      <mat-error *ngIf="patients_form.get('purpose_of_visit').invalid &&
+      patients_form.get('purpose_of_visit').touched &&
+      patients_form.get('purpose_of_visit').errors.required">
+        Purpose of Visit is required
+      </mat-error>
     </mat-form-field>
   </div>
   <div class="flex-row">
     <mat-form-field>
       <mat-label>First Name</mat-label>
-      <input matInput>
+      <input matInput formControlName="first_name" required>
+      <mat-error *ngIf="patients_form.get('first_name').invalid &&
+      patients_form.get('first_name').touched &&
+      patients_form.get('first_name').errors.required">
+        First Name is required
+      </mat-error>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Last Name</mat-label>
-      <input matInput>
+      <input matInput formControlName="last_name" required>
+      <mat-error *ngIf="patients_form.get('last_name').invalid &&
+      patients_form.get('last_name').touched &&
+      patients_form.get('last_name').errors.required">
+        Last Name is required
+      </mat-error>
     </mat-form-field>
   </div>
   <div class="flex-row">
@@ -84,17 +114,22 @@
     </mat-form-field>
     <mat-form-field>
       <mat-label>Sex</mat-label>
-      <mat-select>
+      <mat-select formControlName="sex" required>
         <mat-option value="Male">Male</mat-option>
         <mat-option value="Female">Female</mat-option>
         <mat-option value="Other">Other</mat-option>
       </mat-select>
+      <mat-error *ngIf="patients_form.get('sex').invalid &&
+      patients_form.get('sex').touched &&
+      patients_form.get('sex').errors.required">
+        This is required
+      </mat-error>
     </mat-form-field>
   </div>
   <div class="flex-row">
     <mat-form-field>
       <mat-label>Origin of Patient</mat-label>
-      <mat-select>
+      <mat-select formControlName="origin_of_patient" required>
         <mat-option value="Emergency room">Emergency room</mat-option>
         <mat-option value="C.C.U.">C.C.U.</mat-option>
         <mat-option value="Trauma">Trauma</mat-option>
@@ -112,6 +147,11 @@
         <mat-option value="5 North">5 North</mat-option>
         <mat-option value="6 South">6 South</mat-option>
       </mat-select>
+      <mat-error *ngIf="patients_form.get('origin_of_patient').invalid &&
+      patients_form.get('origin_of_patient').touched &&
+      patients_form.get('origin_of_patient').errors.required">
+        Origin of Patient is required
+      </mat-error>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Attending</mat-label>
@@ -127,7 +167,7 @@
   <div class="flex-row">
     <mat-form-field>
       <mat-label>Life Saving Device</mat-label>
-      <mat-select>
+      <mat-select formControlName="life_saving_device" required>
         <mat-option value="Bi-Pap">Bi-Pap</mat-option>
         <mat-option value="C-Pap">C-Pap</mat-option>
         <mat-option value="Hi-Flow">Hi-Flow</mat-option>
@@ -138,8 +178,13 @@
         <mat-option value="Artic-Sun">Artic-Sun</mat-option>
         <mat-option value="None">None</mat-option>
       </mat-select>
+      <mat-error *ngIf="patients_form.get('life_saving_device').invalid &&
+      patients_form.get('life_saving_device').touched &&
+      patients_form.get('life_saving_device').errors.required">
+        Life Saving Device is required
+      </mat-error>
     </mat-form-field>
-    <mat-slide-toggle>Ventilator</mat-slide-toggle>
+    <mat-slide-toggle formControlName="ventilator">Ventilator</mat-slide-toggle>
   </div>
   <div class="flex-row">
     <mat-form-field>
@@ -160,7 +205,7 @@
     </mat-form-field>
     <mat-form-field>
       <mat-label>Transfer Location</mat-label>
-      <mat-select>
+      <mat-select formControlName="transfer_location" required>
         <mat-option value="Emergency room">Emergency room</mat-option>
         <mat-option value="C.C.U.">C.C.U.</mat-option>
         <mat-option value="Trauma">Trauma</mat-option>
@@ -184,9 +229,14 @@
         <mat-option value="Labor and delivery">Labor and delivery</mat-option>
         <mat-option value="Pediatrics">Pediatrics</mat-option>
       </mat-select>
+      <mat-error *ngIf="patients_form.get('transfer_location').invalid &&
+      patients_form.get('transfer_location').touched &&
+      patients_form.get('transfer_location').errors.required">
+        Transfer Location is required
+      </mat-error>
     </mat-form-field>
   </div>
   <div class="flex-right">
-    <button mat-raised-button (click)="onSubmit()" type="submit">Submit</button>
+    <button mat-raised-button [disabled]="patients_form.invalid" (click)="onSubmit()" type="submit">Submit</button>
   </div>
 </form>
