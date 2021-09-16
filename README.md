@@ -74,13 +74,12 @@ git clone https://github.com/gowripatil/NursingResourceLedger.git
 ```
 * Open IDEA Intellij. Intellij installer can be found [here](https://www.jetbrains.com/idea/download/#section=mac)
 * Import an existing project into Intellij.
-* Lombok requires annotation processor: https://stackoverflow.com/questions/38911888/lombok-requires-annotation-processing
 
 
 Run Server
 * Go to Run -> Edit Configurations -> Click `+` button on the top left -> Select Spring boot
 	* Set name as `NursingResourceLedgerApplication`
-	* Set main class path to `com.cse682.nursingresourceledgerprototype.NursingResourceLedgerPrototype`
+	* Set main class path to `com.cse682.nursingresourceledgerprototype.NursingResourceLedgerPrototypeApplication`
 	* Check `Enable debug output`
 	* Use defaults for the rest
 	* Click `Apply` and `Ok`
