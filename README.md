@@ -64,6 +64,7 @@ insert into nrl.user_role (user_id, role_id) values (1, 1);
 
 * run command to install angular CLI in mac terminal or powershell
 `npm install -g @angular/cli`
+* this will require Node.js and npm which can be found [here](https://nodejs.org/en/download/)
 
 
 # Setting up project
@@ -72,7 +73,7 @@ insert into nrl.user_role (user_id, role_id) values (1, 1);
 ```
 git clone https://github.com/gowripatil/NursingResourceLedger.git
 ```
-* Open IDEA Intellij. Intellij installer can be found [here](https://www.jetbrains.com/idea/download/#section=mac)
+* Open IDEA Intellij. Intellij installer can be found [here](https://www.jetbrains.com/idea/download/)
 * Import an existing project into Intellij.
 
 
@@ -88,10 +89,7 @@ Run Server
 
 This runs rest apis at http://localhost:8080/home. Following are the rest apis:  
 POST /auth/login - login a registered user. No authentication token required to access this page.    
-POST /auth/signup - register a new user as Admin or Nurse. No authentication token required to access this page.    
-GET /user/allusers - returns `Displays all users string`. Accessed by both nurse and admin. Dummy API.  
-GET /user/displayuser - returns `Display only to nurse`. Accessed by nurse only. Dummy API.  
-GET /user/displayadmin - returns `Display only to admin`. Accessed by admin only.  Dummy API.   
+POST /auth/signup - register a new user as Admin or Nurse. No authentication token required to access this page.
 
 GET /auth/ledger/all -- returns all ledger info
 POST /auth/ledger/add -- Adds a ledger entry
