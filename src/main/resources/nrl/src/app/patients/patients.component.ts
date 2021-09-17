@@ -2,14 +2,16 @@ import { Ledger } from '../ledger/ledger.model';
 import { LedgerService } from '../services/ledger.service';
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   templateUrl: 'patients.component.html',
   styleUrls:["../app.component.css"]
 })
 export class PatientsComponent implements OnInit{
-  
+
   _ledgerService;
+  _router;
   patients_form: FormGroup;
   selectedArrivalRoom: string;
   selectedPurpose: string;
@@ -21,9 +23,12 @@ export class PatientsComponent implements OnInit{
   isReadmission: boolean;
   arrivalDate: Date;
   patientName: string;
+  isRecordFailed = false;
+  errorMessage = "";
 
-  constructor(ledgerService: LedgerService) {
+  constructor(ledgerService: LedgerService, private router: Router) {
     this._ledgerService = ledgerService;
+    this._router = router;
   }
 
   ngOnInit(): void {
@@ -52,16 +57,17 @@ export class PatientsComponent implements OnInit{
     this.arrivalDate = new Date(Number(date.getFullYear()), Number(date.getMonth()), Number(date.getDate()), Number(time_arr[0]), Number(time_arr[1]));
     this.patientName = this.patients_form.get("first_name").value + " " + this.patients_form.get("last_name").value;
 
-    let record = new Ledger(this.arrivalDate, this.selectedArrivalRoom, this.selectedPurpose, this.isReadmission, this.patientName, 
+    let record = new Ledger(this.arrivalDate, this.selectedArrivalRoom, this.selectedPurpose, this.isReadmission, this.patientName,
                             this.selectedSex, this.selectedOrigin, this.isVentilator, this.selectedLSD, this.selectedTransferLocation);
     console.log(record);
     this._ledgerService.addRecord(record).subscribe(
       response => {
-        
+        this._router.navigate(['']);
       },
       error => {
-        
         console.error(error);
+        this.errorMessage = error;
+        this.isRecordFailed = true;
       }
     )
   }

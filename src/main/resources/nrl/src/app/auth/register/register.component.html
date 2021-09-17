@@ -47,8 +47,8 @@
     <div class="alert alert-warning" *ngIf="submitted && !isRegistered">
       Signup failed- {{ errorMessage }}
     </div>
-    <div class="alert alert-success" *ngIf="isRegistered">
+    <mat-error *ngIf="isRegistered">
       User successfully added!
-    </div>
+    </mat-error>
   </div>
 </form>
