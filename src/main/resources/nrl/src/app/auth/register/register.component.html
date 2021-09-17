@@ -43,9 +43,9 @@
     </mat-radio-group>
   </div>
   <div class="flex-right">
-    <button mat-raised-button [disabled]="registrationForm.invalid" type="submit">Create User</button>
+    <button mat-raised-button [disabled]="registrationForm.invalid" type="submit">Create User</button><br/>
     <mat-error *ngIf="submitted && !isRegistered">
-      Signup failed- {{ errorMessage }}
+      Signup failed
     </mat-error>
     <div *ngIf="isRegistered">
       User successfully added!
