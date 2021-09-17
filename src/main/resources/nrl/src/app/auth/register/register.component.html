@@ -44,11 +44,11 @@
   </div>
   <div class="flex-right">
     <button mat-raised-button [disabled]="registrationForm.invalid" type="submit">Create User</button>
-    <div class="alert alert-warning" *ngIf="submitted && !isRegistered">
+    <mat-error *ngIf="submitted && !isRegistered">
       Signup failed- {{ errorMessage }}
-    </div>
-    <mat-error *ngIf="isRegistered">
-      User successfully added!
     </mat-error>
+    <div *ngIf="isRegistered">
+      User successfully added!
+    </div>
   </div>
 </form>
