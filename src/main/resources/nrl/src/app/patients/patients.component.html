@@ -239,7 +239,7 @@
   <div class="flex-right">
     <button mat-raised-button [disabled]="patients_form.invalid" type="submit">Submit</button>
     <mat-error *ngIf="isRecordFailed">
-      Login failed- {{ errorMessage }}
+      Patient record not added - {{ errorMessage }}
     </mat-error>
   </div>
 </form>

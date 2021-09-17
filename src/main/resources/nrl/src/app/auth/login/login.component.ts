@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
 
   passwordError(): string {
     if (this.loginForm.get("password").errors.required)
-      return "User name is required";
+      return "Password is required";
     return "";
   }
 }
