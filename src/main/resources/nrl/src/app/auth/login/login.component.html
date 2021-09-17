@@ -14,6 +14,9 @@
     </mat-error>
   </mat-form-field>
   <div class="flex-right">
-    <button mat-raised-button type="submit">Login</button>
+    <button mat-raised-button [disabled]="loginForm.invalid" type="submit">Login</button>
+    <mat-error *ngIf="submitted && isLoginFailed">
+      Login failed- {{ errorMessage }}
+    </mat-error>
   </div>
 </form>

@@ -2,6 +2,7 @@ import { Ledger } from '../ledger/ledger.model';
 import { LedgerService } from '../services/ledger.service';
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, FormGroupDirective, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   templateUrl: 'patients.component.html',
@@ -12,6 +13,7 @@ export class PatientsComponent implements OnInit{
   @ViewChild(FormGroupDirective) formDirective: FormGroupDirective;
 
   _ledgerService;
+  _router;
   patients_form: FormGroup;
   selectedArrivalRoom: string;
   selectedPurpose: string;
@@ -23,11 +25,12 @@ export class PatientsComponent implements OnInit{
   isReadmission: boolean;
   arrivalDate: Date;
   patientName: string;
-  submitFailure: boolean = false;
-  submitSuccess: boolean = false;
+  isRecordFailed = false;
+  errorMessage = "";
 
-  constructor(ledgerService: LedgerService) {
+  constructor(ledgerService: LedgerService, private router: Router) {
     this._ledgerService = ledgerService;
+    this._router = router;
   }
 
   ngOnInit(): void {
@@ -48,8 +51,6 @@ export class PatientsComponent implements OnInit{
   }
 
   onSubmit(): void {
-    this.submitSuccess = false;
-    this.submitFailure = false;
     this.isReadmission = this.patients_form.value['readmission'] ?? false;
     this.isVentilator = this.patients_form.value['ventilator'] ?? false;
     let date = this.patients_form.get("arrival_date").value;
@@ -58,17 +59,16 @@ export class PatientsComponent implements OnInit{
     this.arrivalDate = new Date(Number(date.getFullYear()), Number(date.getMonth()), Number(date.getDate()), Number(time_arr[0]), Number(time_arr[1]));
     this.patientName = this.patients_form.get("first_name").value + " " + this.patients_form.get("last_name").value;
 
-    let record = new Ledger(this.arrivalDate, this.selectedArrivalRoom, this.selectedPurpose, this.isReadmission, this.patientName, 
+    let record = new Ledger(this.arrivalDate, this.selectedArrivalRoom, this.selectedPurpose, this.isReadmission, this.patientName,
                             this.selectedSex, this.selectedOrigin, this.isVentilator, this.selectedLSD, this.selectedTransferLocation);
 
     this._ledgerService.addRecord(record).subscribe(
       response => {
-        this.formDirective.resetForm();
-        this.submitSuccess = true;
+        this._router.navigate(['']);
       },
-
       error => {
-        this.submitFailure = true;
+        this.errorMessage = error;
+        this.isRecordFailed = true;
         console.error(error);
       }
     )
