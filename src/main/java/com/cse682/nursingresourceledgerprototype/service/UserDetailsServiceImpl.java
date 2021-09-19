@@ -11,6 +11,9 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 
+/**
+ * UserDetailsServiceImpl class that is backed by UserRepository.
+ */
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 

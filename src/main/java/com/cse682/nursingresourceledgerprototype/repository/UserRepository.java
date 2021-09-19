@@ -6,6 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+/**
+ * UserRepository class. JpaRepository implements the CRUD repository APIs.
+ */
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
     public Optional<User> findByUserName(String userName);

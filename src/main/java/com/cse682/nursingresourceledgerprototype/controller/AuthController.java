@@ -18,6 +18,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * AuthController class handles user login and registration.
+ */
 @RestController
 @CrossOrigin(origins="*")
 @RequestMapping("/auth")
@@ -28,6 +31,15 @@ public class AuthController {
     @Autowired AuthenticationManager authenticationManager;
     @Autowired JwtTokenUtil jwtTokenUtil;
 
+    /**
+     * POST method to handle user login.
+     * User calls POST http://localhost:8080/auth/login REST API. UserName and
+     * Password in the request body and the response is
+     * 200 - If credentials are valid
+     * 400 - If credentials are invalid
+     * @param user
+     * @return
+     */
     @PostMapping("/login")
     public ResponseEntity<?> userLogin(@RequestBody User user) {
         //System.out.println("AuthController -- userLogin");
@@ -46,6 +58,15 @@ public class AuthController {
         return ResponseEntity.ok(authResponse);
     }
 
+    /**
+     * POST method to handle user signup .
+     * User calls POST http://localhost:8080/auth/signup REST API. User Details
+     * are passed in the request body and the response is
+     * 200 - If the registration is successful
+     * 400 - If the UserName or Email is already taken.
+     * @param signupRequest
+     * @return
+     */
     @PostMapping("/signup")
     public ResponseEntity<?> userSignup(@RequestBody SignupRequest signupRequest) {
         if(userRepository.existsByUserName(signupRequest.getUserName())){

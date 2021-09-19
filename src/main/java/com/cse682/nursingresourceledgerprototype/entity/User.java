@@ -5,6 +5,9 @@ import javax.persistence.Table;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * User entity store in the datastore
+ */
 @Entity
 @Table(name = "users")
 public class User {

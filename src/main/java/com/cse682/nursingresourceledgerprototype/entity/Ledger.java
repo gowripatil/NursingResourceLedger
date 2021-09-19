@@ -4,10 +4,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.persistence.*;
 import java.util.Date;
 
+/**
+ * Ledger entity store in the datastore
+ */
 @Entity
 @Table(name = "ledger")
 public class Ledger {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

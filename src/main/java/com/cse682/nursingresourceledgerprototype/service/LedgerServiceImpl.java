@@ -7,6 +7,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * LedgerServiceImpl class that is backed by LedgerRepository.
+ */
 @Service
 public class LedgerServiceImpl {
 

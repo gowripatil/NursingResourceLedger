@@ -2,6 +2,9 @@ package com.cse682.nursingresourceledgerprototype.entity;
 
 import javax.persistence.*;
 
+/**
+ * Role entity store in the datastore
+ */
 @Entity
 @Table(name="role")
 public class Role {

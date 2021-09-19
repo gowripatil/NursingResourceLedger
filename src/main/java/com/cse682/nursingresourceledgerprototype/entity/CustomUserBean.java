@@ -9,6 +9,10 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * CustomUserBean implements UserDetails class. UserDetails class needs to be
+ * implemented for login and authentication.
+ */
 public class CustomUserBean implements UserDetails {
     private static final long serialVersionUID = -4709084843450077569L;
     private Integer id;

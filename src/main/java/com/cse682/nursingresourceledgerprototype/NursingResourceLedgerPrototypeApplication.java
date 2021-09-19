@@ -7,6 +7,9 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+/**
+ * Entry class for spring boot.
+ */
 @ComponentScan(basePackages = {
         "com.cse682.nursingresourceledgerprototype.repository",
         "com.cse682.nursingresourceledgerprototype.controller",
