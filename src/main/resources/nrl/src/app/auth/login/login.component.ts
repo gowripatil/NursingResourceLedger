@@ -8,6 +8,9 @@ import {AuthService} from "src/app/services/auth.service";
   templateUrl: './login.component.html',
   styleUrls: ["../../app.component.css"]
 })
+/**
+ * Log in with user name and password
+ */
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
@@ -26,6 +29,9 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  /**
+   * If login is successful, navigate to ledger. Otherwise, throw error.
+   */
   onSubmit() {
     this.submitted = true;
     this.authService.login(this.loginForm.value.userName, this.loginForm.value.password).subscribe(
