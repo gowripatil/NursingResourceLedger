@@ -7,6 +7,8 @@ Built the app using these references:
 Spring boot + JWT + Mysql: https://www.netjstech.com/2021/02/spring-boot-spring-security-jwt-authentication.html  
 Angular: https://www.netjstech.com/2021/02/angular-spring-boot-jwt-authentication-login-example.html  
 
+Code is available online at https://github.com/gowripatil/NursingResourceLedger
+
 ## Prerequsites 
 
 ### Install MySQL Server and tables
