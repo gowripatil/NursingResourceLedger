@@ -8,8 +8,11 @@ import {Router} from "@angular/router";
   templateUrl: 'patients.component.html',
   styleUrls:["../app.component.css"]
 })
+/**
+ * Submit a patient's info, which is saved in the ledger
+ */
 export class PatientsComponent implements OnInit{
-  
+
   @ViewChild(FormGroupDirective) formDirective: FormGroupDirective;
 
   _ledgerService;
@@ -50,6 +53,11 @@ export class PatientsComponent implements OnInit{
     });
   }
 
+  /**
+   * Concatenate date with time and first name with last name.
+   * Then, create a Ledger object and add it to the ledger.
+   * If successful, navigate to the ledger page.
+   */
   onSubmit(): void {
     this.isReadmission = this.patients_form.value['readmission'] ?? false;
     this.isVentilator = this.patients_form.value['ventilator'] ?? false;

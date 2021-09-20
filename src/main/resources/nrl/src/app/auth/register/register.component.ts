@@ -8,6 +8,10 @@ import {User} from "../user.model";
   templateUrl: './register.component.html',
   styleUrls: ["../../app.component.css"]
 })
+
+/**
+ * Admins can register a new user as either a nurse or another admin
+ */
 export class RegisterComponent implements OnInit {
   registrationForm: FormGroup;
   user = new User('', '', '', '', '', []);
@@ -38,7 +42,6 @@ export class RegisterComponent implements OnInit {
     this.user.userName = this.registrationForm.value.userName;
     this.user.email = this.registrationForm.value.email;
     this.user.password = this.registrationForm.value.password;
-    //TODO: find out if this needs to be an array
     this.user.roles = [this.registrationForm.value.selectedRole];
     this.registerUser()
   }

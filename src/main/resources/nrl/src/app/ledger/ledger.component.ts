@@ -6,8 +6,11 @@ import { LedgerService } from '../services/ledger.service';
   templateUrl: 'ledger.component.html',
   styleUrls:["../app.component.css"]
 })
+/**
+ * Keeps track of equipment and patients
+ */
 export class LedgerComponent {
-  
+
   displayedColumns: string[] = ["arrivalDate", "arrivalRoom", "purposeOfVisit", "readmission", "patientName",
     "sex", "patientOrigin", "isVentilatorSupport", "lifeSavingDevices", "transferLocation"];
   dataSource;

@@ -1,3 +1,6 @@
+/**
+ * Class for each row in the ledger
+ */
 export class Ledger {
     arrivalDate: Date;
     arrivalRoom: string;
