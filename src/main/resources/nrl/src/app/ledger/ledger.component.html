@@ -3,8 +3,8 @@
     <!-- Arrival Date Time Column -->
     <ng-container matColumnDef="arrivalDate">
       <th mat-header-cell *matHeaderCellDef> Arrival Date Time</th>
-      <td mat-cell
-          *matCellDef="let patient"> {{formatDate(patient.arrivalDate, "dd-MM-yyyy hh:mm:ss a", "en-US")}} </td>
+      <td mat-cell *matCellDef="let patient"> {{formatDate(patient.arrivalDate, "dd-MM-yyyy hh:mm:ss a", "en-US")}}
+      </td>
     </ng-container>
     <!-- Arrival Room Column -->
     <ng-container matColumnDef="arrivalRoom">

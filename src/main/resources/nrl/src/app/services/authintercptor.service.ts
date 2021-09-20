@@ -3,16 +3,16 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 
 @Injectable()
-export class AuthInterceptor implements HttpInterceptor{
-    intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        let modifiedReq = req
-        if (sessionStorage.getItem('username') && sessionStorage.getItem('token')) {
-            modifiedReq = req.clone({
-                setHeaders: {
-                    Authorization: sessionStorage.getItem('token')
-                  }
-            });
+export class AuthInterceptor implements HttpInterceptor {
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    let modifiedReq = req
+    if (sessionStorage.getItem('username') && sessionStorage.getItem('token')) {
+      modifiedReq = req.clone({
+        setHeaders: {
+          Authorization: sessionStorage.getItem('token')
         }
-        return next.handle(modifiedReq);
+      });
     }
+    return next.handle(modifiedReq);
+  }
 }

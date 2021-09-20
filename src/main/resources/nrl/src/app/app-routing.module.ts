@@ -7,11 +7,11 @@ import { PatientsComponent } from './patients';
 import { AuthService } from './services/auth.service';
 
 const routes: Routes = [
-    {path: '', redirectTo: 'ledger', pathMatch: 'full'},
-    {path: 'login', component: LoginComponent},
-    {path: 'createuser', component: RegisterComponent, canActivate: [AuthService]},
-    {path: 'ledger', component: LedgerComponent, canActivate: [AuthService]},
-    {path: 'patients', component: PatientsComponent, canActivate: [AuthService]},
+  { path: '', redirectTo: 'ledger', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'createuser', component: RegisterComponent, canActivate: [AuthService] },
+  { path: 'ledger', component: LedgerComponent, canActivate: [AuthService] },
+  { path: 'patients', component: PatientsComponent, canActivate: [AuthService] },
 ];
 
 @NgModule({

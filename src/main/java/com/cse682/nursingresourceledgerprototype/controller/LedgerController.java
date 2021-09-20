@@ -62,6 +62,4 @@ public class LedgerController {
         Ledger updateLedger = ledgerService.updateLedger(ledger);
         return new ResponseEntity<Ledger>(updateLedger, HttpStatus.CREATED);
     }
-
-
 }

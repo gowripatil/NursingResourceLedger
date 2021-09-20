@@ -1,7 +1,7 @@
-import {Component, OnInit} from "@angular/core";
-import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
-import {AuthService} from "src/app/services/auth.service";
-import {User} from "../user.model";
+import { Component, OnInit } from "@angular/core";
+import { FormArray, FormControl, FormGroup, Validators } from "@angular/forms";
+import { AuthService } from "src/app/services/auth.service";
+import { User } from "../user.model";
 
 @Component({
   selector: 'app-register',
@@ -19,8 +19,8 @@ export class RegisterComponent implements OnInit {
   submitted = false;
   errorMessage = '';
   roles: any = [
-    {name: 'Nurse', id: 1},
-    {name: 'Admin', id: 2},
+    { name: 'Nurse', id: 1 },
+    { name: 'Admin', id: 2 },
   ]
 
   constructor(private authService: AuthService) {

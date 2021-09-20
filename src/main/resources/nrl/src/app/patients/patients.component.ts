@@ -1,17 +1,17 @@
 import { Ledger } from '../ledger/ledger.model';
 import { LedgerService } from '../services/ledger.service';
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {FormControl, FormGroup, FormGroupDirective, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, FormGroupDirective, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 
 @Component({
   templateUrl: 'patients.component.html',
-  styleUrls:["../app.component.css"]
+  styleUrls: ["../app.component.css"]
 })
 /**
  * Submit a patient's info, which is saved in the ledger
  */
-export class PatientsComponent implements OnInit{
+export class PatientsComponent implements OnInit {
 
   @ViewChild(FormGroupDirective) formDirective: FormGroupDirective;
 
@@ -63,12 +63,12 @@ export class PatientsComponent implements OnInit{
     this.isVentilator = this.patients_form.value['ventilator'] ?? false;
     let date = this.patients_form.get("arrival_date").value;
     let time = this.patients_form.get("arrival_time").value;
-    let  time_arr = time.split(":")
+    let time_arr = time.split(":")
     this.arrivalDate = new Date(Number(date.getFullYear()), Number(date.getMonth()), Number(date.getDate()), Number(time_arr[0]), Number(time_arr[1]));
     this.patientName = this.patients_form.get("first_name").value + " " + this.patients_form.get("last_name").value;
 
     let record = new Ledger(this.arrivalDate, this.selectedArrivalRoom, this.selectedPurpose, this.isReadmission, this.patientName,
-                            this.selectedSex, this.selectedOrigin, this.isVentilator, this.selectedLSD, this.selectedTransferLocation);
+      this.selectedSex, this.selectedOrigin, this.isVentilator, this.selectedLSD, this.selectedTransferLocation);
 
     this._ledgerService.addRecord(record).subscribe(
       response => {

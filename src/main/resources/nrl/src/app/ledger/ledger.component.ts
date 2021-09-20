@@ -1,10 +1,10 @@
-import {Component} from '@angular/core';
-import {formatDate } from '@angular/common';
+import { Component } from '@angular/core';
+import { formatDate } from '@angular/common';
 import { LedgerService } from '../services/ledger.service';
 
 @Component({
   templateUrl: 'ledger.component.html',
-  styleUrls:["../app.component.css"]
+  styleUrls: ["../app.component.css"]
 })
 /**
  * Keeps track of equipment and patients

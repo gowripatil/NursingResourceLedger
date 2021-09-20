@@ -6,14 +6,18 @@ import { AuthService } from './services/auth.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+/**
+ * Interacts with the auth service and session
+ * session storage to show correct header tabs
+ */
 export class AppComponent implements OnInit {
 
-  constructor(private authService: AuthService){}
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void { }
 
   getUserName(): string {
-     return sessionStorage.getItem("username");
+    return sessionStorage.getItem("username");
   }
 
   onLogOut(): void {
